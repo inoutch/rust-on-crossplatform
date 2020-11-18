@@ -1,0 +1,21 @@
+[package]
+name = "rust_on_crossplatform"
+version = "0.0.1"
+edition = "2018"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+[dependencies]
+env_logger = "0.8.1"
+log = "0.4.11"
+
+[target.'cfg(target_os = "android")'.dependencies]
+ndk-sys = "0.2.1"
+ndk-glue = "0.2.1"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2.68"
+wasm-logger = "0.2.0"
+web-sys = "0.3.45"
+console_error_panic_hook = "0.1.6"
